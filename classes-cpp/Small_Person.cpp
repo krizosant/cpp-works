@@ -1,4 +1,4 @@
-3.Class Person
+//3.Class Person (W3Resource)
 #include <iostream>
 #include <string>
 
