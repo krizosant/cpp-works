@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 
+//ТРЯБВА ДА СЕ ПРЕРАБОТИ, ЗАЩОТО ДАВА ГРЕШЕН РЕЗУЛТАТ
 int main()
 {
   unsigned int n = 0, vecIndex = 0; //number of words
