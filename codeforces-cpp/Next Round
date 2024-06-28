@@ -1,0 +1,62 @@
+#include <iostream>
+#include <vector>
+
+int main()
+{
+	unsigned int n, k, conScore, counter, advancingCounter; //1 <= k <= n <= 50
+	std::vector<unsigned> conScoreVec;
+	do
+	{
+		std::cin >> n;
+		std::cin >> k;
+		if(n < k)
+		{
+			std::cout << "Mistake\n";
+		}
+	}
+	while((n < k) || (((n <= 0) || (n > 50)) || ((k <= 0) || (k > 50))));
+
+	//въвеждаме резултат
+	for(unsigned index = 0; index < n;)
+	{
+		do
+		{
+			std::cin >> conScore;
+		}
+		while(conScore > 100);
+		if(index >= 1)
+		{
+			if(conScore <= conScoreVec[index - 1])
+			{
+				conScoreVec.push_back(conScore);
+				index++;
+			}
+		}
+		else
+		{
+			conScoreVec.push_back(conScore);
+			index++;
+		}
+	}
+
+	counter = 0;
+	advancingCounter = 0;
+	do
+	{
+		if((conScoreVec[counter] >= conScoreVec[k - 1]) && (conScoreVec[counter] > 0))
+		{
+			advancingCounter++;
+			counter++;
+		}
+		else
+		{
+			counter++;
+		}
+	}
+	while(counter < conScoreVec.size());
+
+	std::cout << "\n" << advancingCounter;
+	return 0;
+}
+
+//работи
