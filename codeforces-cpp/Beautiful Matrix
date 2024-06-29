@@ -1,0 +1,182 @@
+#include <iostream>
+
+int main()
+{
+	bool digitOne = 0;
+	int matrix[5][5];
+
+	for(int rowIndex = 0; rowIndex < 5; rowIndex++)
+	{
+		for(int columnIndex = 0; columnIndex < 5; columnIndex++)
+		{
+			do
+			{
+				std::cin >> matrix[rowIndex][columnIndex];
+				if(matrix[rowIndex][columnIndex] == 1)
+				{
+					if(digitOne == false)
+					{
+						digitOne = true;
+					}
+					else
+					{
+						do
+						{
+							std::cin >> matrix[rowIndex][columnIndex];
+						}
+						while(matrix[rowIndex][columnIndex] == 1);
+					}
+				}
+			}
+			while((matrix[rowIndex][columnIndex] != 0) && ((matrix[rowIndex][columnIndex] != 1) || (digitOne == false)));
+		}
+		std::cout << std::endl;
+	}
+
+//	for(int rowIndex = 0; rowIndex < 5; rowIndex++)
+//	{
+//		for(int columnIndex = 0; columnIndex < 5; columnIndex++)
+//		{
+//			std::cout << matrix[rowIndex][columnIndex] << " ";
+//		}
+//		std::cout << std::endl;
+//
+//	}
+	/*   0 1 2 3 4
+	 * 0 0 0 0 0 0
+	 * 1 0 0 0 0 0
+	 * 2 0 0 0 0 0
+	 * 3 0 0 0 0 0
+	 * 4 0 0 0 0 0
+	 *
+	 * Средата е matrix[2][2]
+	 */
+
+	for(int rowIndex = 0; rowIndex < 5; rowIndex++)
+	{
+		for(int columnIndex = 0; columnIndex < 5; columnIndex++)
+		{
+			if((matrix[rowIndex][columnIndex] == 1) && ((rowIndex == 2) && (columnIndex == 2)))
+			{
+				std::cout << 0;
+			}
+			else if(matrix[rowIndex][columnIndex] == 1)
+			{
+				if(rowIndex == 2)
+				{
+					if(columnIndex < 2)
+					{
+						if(columnIndex + 1 == 2)
+						{
+							std::cout << 1;
+						}
+						else
+						{
+							std::cout << 2;
+						}
+					}
+					else
+					{
+						if(columnIndex - 1 == 2)
+						{
+							std::cout << 1;
+						}
+						else
+						{
+							std::cout << 2;
+						}
+					}
+				}
+				else if(columnIndex == 2)
+				{
+					if(rowIndex < 2)
+					{
+						if(rowIndex + 1 == 2)
+						{
+							std::cout << 1;
+						}
+						else
+						{
+							std::cout << 2;
+						}
+					}
+					else
+					{
+						if(rowIndex - 1 == 2)
+						{
+							std::cout << 1;
+						}
+						else
+						{
+							std::cout << 2;
+						}
+					}
+				}
+				else
+				{
+					if((rowIndex < 2) && (columnIndex < 2))
+					{
+						if((rowIndex + 1 == 2) && (columnIndex + 1 == 2))
+						{
+							std::cout << 2;
+						}
+						else if(((rowIndex + 1 == 2) && (columnIndex + 1 != 2)) || ((rowIndex + 1 != 2) && (columnIndex + 1 == 2)))
+						{
+							std::cout << 3;
+						}
+						else
+						{
+							std::cout << 4;
+						}
+					}
+					else if((rowIndex < 2) && (columnIndex > 2))
+					{
+						if((rowIndex + 1 == 2) && (columnIndex - 1 == 2))
+						{
+							std::cout << 2;
+						}
+						else if(((rowIndex + 1 == 2) && (columnIndex - 1 != 2)) || ((rowIndex + 1 != 2) && (columnIndex - 1 == 2)))
+						{
+							std::cout << 3;
+						}
+						else
+						{
+							std::cout << 4;
+						}
+					}
+					else if((rowIndex > 2) && (columnIndex > 2))
+					{
+						if((rowIndex - 1 == 2) && (columnIndex - 1 == 2))
+						{
+							std::cout << 2;
+						}
+						else if(((rowIndex - 1 == 2) && (columnIndex - 1 != 2)) || ((rowIndex - 1 != 2) && (columnIndex - 1 == 2)))
+						{
+							std::cout << 3;
+						}
+						else
+						{
+							std::cout << 4;
+						}
+					}
+					else if((rowIndex > 2) && (columnIndex < 2))
+					{
+						if((rowIndex - 1 == 2) && (columnIndex + 1 == 2))
+						{
+							std::cout << 2;
+						}
+						else if(((rowIndex - 1 == 2) && (columnIndex + 1 != 2)) || ((rowIndex - 1 != 2) && (columnIndex + 1 == 2)))
+						{
+							std::cout << 3;
+						}
+						else
+						{
+							std::cout << 4;
+						}
+					}
+				}
+			}
+		}
+	}
+	return 0;
+}
