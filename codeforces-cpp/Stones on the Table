@@ -1,0 +1,42 @@
+#include <iostream>
+#include <string>
+
+int main()
+{
+	unsigned numberOfStones, index, stonesToRemove;
+	do
+	{
+		std::cin >> numberOfStones;
+	}
+	while((numberOfStones < 1)||(numberOfStones > 50));
+
+	index = 0;
+	char* colorOfStones = new char[numberOfStones];
+	do
+	{
+		std::cin >> colorOfStones[index];
+		if((colorOfStones[index] == 'G') || (colorOfStones[index] == 'R') || (colorOfStones[index] == 'B'))
+		{
+			index++;
+		}
+	}
+	while(index < numberOfStones);
+
+	for(index = 0, stonesToRemove = 0; index < numberOfStones;)
+	{
+		//6
+		//RGGRBB
+		if(colorOfStones[index] == colorOfStones[index + 1])
+		{
+			index++;
+			stonesToRemove++;
+		}
+		else
+		{
+			index++;
+		}
+	}
+	std::cout << stonesToRemove;
+	delete[] colorOfStones;
+	return 0;
+}
