@@ -1,0 +1,42 @@
+#include <iostream>
+
+int main()
+{
+	unsigned x, steps;
+	do
+	{
+		std::cin >> x;
+	}
+	while((x < 1) || (x > 1000000));
+
+	for(unsigned index = 0, difference = 0; index != x;)
+	{
+		if(index < x)
+		{
+			index += 5;
+			steps++;
+		}
+		else //100, 101, 102, 103, 104 - 105
+		{
+			difference = index - x;
+			if(difference == 1)
+			{
+				index--;
+			}
+			else if(difference == 2)
+			{
+				index -= 2;
+			}
+			else if(difference == 3)
+			{
+				index -= 3;
+			}
+			else if(difference == 4)
+			{
+				index -= 4;
+			}
+		}
+	}
+	std::cout << steps;
+	return 0;
+}
