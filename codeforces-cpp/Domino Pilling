@@ -1,0 +1,35 @@
+#include <iostream>
+
+int main()
+{
+	unsigned M, N;
+	for(;;)
+	{
+		std::cin >> M >> N;
+		if((M >= 1) && (M <= 16))
+		{
+			if((N >= 1) && (N <= 16))
+			{
+				if(N >= M)
+				{
+					break;
+				}
+			}
+		}
+	}
+
+	if((M == 1) && (N == 1)) //частен случай на MxN
+	{
+		std::cout << 0;
+	}
+	else if((M * N) % 2 == 0) //Ако прозиведението M*N е четно, то (M*N) / 2 ще бъде максималният брой плочки!
+	{
+		std::cout << (M*N) / 2;
+	}
+	else
+	{
+		std::cout << ((M*N) - 1) / 2;
+	}
+
+	return 0;
+}
