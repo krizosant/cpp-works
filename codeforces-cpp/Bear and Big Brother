@@ -1,0 +1,29 @@
+#include <iostream>
+
+int main()
+{
+	unsigned a, b, years;
+	bool flag = true;
+	do
+	{
+		std::cin >> a >> b;
+		if(((a >= 1) && (a <= b)) && ((a >= 1) && (a <= b)) && (a <= b))
+		{
+			flag = false;
+		}
+	}
+	while(flag);
+
+	years = 0;
+	do
+	{
+		a *= 3;
+		b *= 2;
+		years += 1;
+	}
+	while(a <= b);
+
+	std::cout << years;
+
+	return 0;
+}
