@@ -22,3 +22,48 @@ int main()
 
 	return 0;
 }
+
+//Код с рекурсия; не го приемат, защото времето н изпълмнение надминава 1ms
+//#include <math.h>
+//#include <complex>
+//#include <thread>
+//#include <chrono>
+//
+////Calculating function
+////needs to decrease the execution time!!!
+//
+//int function(unsigned par)
+//{
+//	if(par == 1)
+//	{
+//		return -1;
+//	}
+//	else
+//	{
+//		return par * pow(-1, par) + function(par - 1);
+//	}
+//}
+//
+//int main()
+//{
+//	//Инстанция на clock_t. Обектът time_req ни служи като хронометър.
+//	std::clock_t time_req;
+//
+//	//Старт на часовника
+//	time_req = clock();
+//
+//	unsigned long x;
+//	do
+//	{
+//		std::cin >> x;
+//	}
+//	while((x < 1) && (x > 10000000000));
+//	//1.0*10^9 = 1.0*10E9
+//
+//	std::cout << function(x);
+//
+//	time_req = clock() - time_req;
+//	std::cout << "\nExecution time per test: " << (float)time_req/CLOCKS_PER_SEC;
+//
+//	return 0;
+//}
