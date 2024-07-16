@@ -1,0 +1,94 @@
+#include <iostream>
+#include <string>
+
+int main()
+{
+	unsigned currentChar, charIndex, finalLength;
+	std::string username;
+	bool inputFlag, letterFlag;
+	inputFlag = false;
+	do
+	{
+		std::cin >> username;
+		if(username.size() <= 100)
+		{
+			for(unsigned short index = 0; index < username.length() ;)
+			{
+				if((username[index] >= 'a') && (username[index] <= 'z'))
+				{
+					index++;
+					if(index == username.length())
+					{
+						inputFlag = false;
+					}
+				}
+				else
+				{
+					index = username.length();
+				}
+			}
+		}
+	}
+	while(inputFlag);
+
+	charIndex = 1 ;
+	currentChar = 0;
+	letterFlag = true;
+	finalLength = username.size();
+	do
+	{
+		do
+		{
+			if((username[currentChar] == username[charIndex]))
+			{
+				if(letterFlag)
+				{
+					finalLength--;
+					letterFlag = false;
+				}
+				charIndex++;
+			}
+			else
+			{
+				charIndex++;
+			}
+		}
+		while(charIndex < username.length());
+		letterFlag = true;
+		currentChar++;
+		charIndex = currentChar + 1;
+	}
+	while(currentChar < username.length());
+	//wjmzbmr
+
+	if(finalLength % 2 == 0)
+	{
+		std::cout << "CHAT WITH HER!";
+	}
+	else
+	{
+		std::cout << "IGNORE HIM!";
+	}
+	return 0;
+}
+
+/* dushpelegaohotioakoim - 21 chars
+ * d - 1
+ * u - 1
+ * s - 1
+ * h - 2
+ * p - 1
+ * e - 2
+ * l - 1
+ * g - 1
+ * a - 2
+ * o - 4
+ * t - 1
+ * i - 2
+ * k - 1
+ * m - 1
+ * 21 - 7 = 14
+ *
+ *
+ *
+ */
