@@ -1,0 +1,67 @@
+#include <iostream>
+#include <string>
+
+int main()
+{
+	unsigned numberOfGames; //n games in a row; none of them ended with a tie; either Anton was winner or Danik was winner
+	unsigned antonWins, danikWins;
+	std::string gameSeries;
+	do
+	{
+		std::cin >> numberOfGames;
+	}
+	while((numberOfGames < 1) || (numberOfGames > 1*10e4));
+
+	unsigned index = 0;
+	for(;;)
+	{
+		std::cin >> gameSeries;
+		for(;;)
+		{
+			if((gameSeries[index] == 'A') || (gameSeries[index] == 'D'))
+			{
+				index++;
+			}
+			else
+			{
+				break;
+			}
+		}
+		if(index == gameSeries.length())
+		{
+			break;
+		}
+	}
+
+	for(antonWins = 0, danikWins = 0, index = 0; ;)
+	{
+		if(gameSeries[index] == 'A')
+		{
+			antonWins++;
+			index++;
+		}
+		else if(gameSeries[index] == 'D')
+		{
+			danikWins++;
+			index++;
+		}
+		else
+		{
+			break;
+		}
+	}
+
+	if(antonWins > danikWins)
+	{
+		std::cout << "Anton";
+	}
+	else if(danikWins > antonWins)
+	{
+		std::cout << "Danik";
+	}
+	else
+	{
+		std::cout << "Friendship";
+	}
+	return 0;
+}
