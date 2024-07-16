@@ -1,0 +1,125 @@
+#include <iostream>
+#include <string>
+
+int main()
+{
+	std::string firstString, secondString;
+	do
+	{
+		std::cin >> firstString >> secondString;
+		for(unsigned index = 0; index < firstString.size();)
+		{
+			if(((firstString[index] >= 'a') && (firstString[index] <= 'z')) ||
+					((firstString[index] >= 'A') && (firstString[index] <= 'Z')))
+			{
+				index++;
+			}
+			else
+			{
+				firstString.clear();
+				break;
+			}
+		}
+		for(unsigned index = 0; index < secondString.size();)
+		{
+			if(((secondString[index] >= 'a') && (secondString[index] <= 'z')) ||
+					((secondString[index] >= 'A') && (secondString[index] <= 'Z')))
+			{
+				index++;
+			}
+			else
+			{
+				secondString.clear();
+				break;
+			}
+		}
+		if(firstString.size() > secondString.size())
+		{
+			firstString.resize(secondString.size());
+		}
+		else
+		{
+			secondString.resize(firstString.size());
+		}
+	}
+	while(secondString.empty() && firstString.empty());
+
+	for(unsigned index = 0; ;)
+	{
+		if((firstString[index] - 32 == secondString[index]) || (firstString[index] + 32 == secondString[index])
+				|| (firstString[index] == secondString[index] - 32) || (firstString[index] == secondString[index] + 32)
+				|| (firstString[index] == secondString[index]))
+		{
+			index++;
+			if(index == firstString.size())
+			{
+				std::cout << 0;
+				break;
+			}
+		}
+		else
+		{
+			if((firstString[index] >= 'A') && (firstString[index] <= 'Z'))
+			{
+				if((secondString[index] >= 'A') && (secondString[index] <= 'Z'))
+				{
+					if(firstString[index] < secondString[index])
+					{
+						std::cout << -1;
+						break;
+					}
+					else
+					{
+						std::cout << 1;
+						break;
+					}
+				}
+				else
+				{
+					secondString[index] -= 32;
+					if(firstString[index] < secondString[index])
+					{
+						std::cout << -1;
+						break;
+					}
+					else
+					{
+						std::cout << 1;
+						break;
+					}
+				}
+			}
+			else
+			{
+				if((secondString[index] >= 'A') && (secondString[index] <= 'Z'))
+				{
+					firstString[index] -= 32;
+					if(firstString[index] < secondString[index])
+					{
+						std::cout << -1;
+						break;
+					}
+					else
+					{
+						std::cout << 1;
+						break;
+					}
+				}
+				else
+				{
+					if(firstString[index] < secondString[index])
+					{
+						std::cout << -1;
+						break;
+					}
+					else
+					{
+						std::cout << 1;
+						break;
+					}
+				}
+			}
+		}
+	}
+	return 0;
+}
