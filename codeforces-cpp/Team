@@ -1,0 +1,68 @@
+#include <iostream>
+ 
+int main()
+{
+  unsigned int petya, vasya, tonya; //the three contestants decision marking variable
+  petya = 0, vasya = 0, tonya = 0;
+  unsigned int problems, counter; //the number of problems in the contest
+ 
+  do
+  {
+    std::cin >> problems;
+  }
+  while((problems < 1) || (problems > 1000));
+ 
+  //std::cout << "Enter Petya, Vasya and Tonya's decisions for the " << problems << " problem/s: \n";
+  for(unsigned index = 0; index < problems;)
+  {
+    std::cin >> petya >> vasya >> tonya;
+    if((petya != 1) && (petya != 0))
+    {
+      //std::cout << "Wrong decision for Petya! Enter again: ";
+      while((petya != 1) && (petya != 0))
+      {
+        std::cin >> petya;
+        if((petya != 1) && (petya != 0))
+        {
+          //std::cout << "Wrong decision for Petya! Enter again: ";
+        }
+      }
+    }
+    if((vasya != 1) && (vasya != 0))
+    {
+      //std::cout << "Wrong decision for Vasya! Enter again: ";
+      while((vasya != 1) && (vasya != 0))
+      {
+        std::cin >> vasya;
+        if((vasya != 1) && (vasya != 0))
+        {
+          //std::cout << "Wrong decision for Vasya! Enter again: ";
+        }
+      }
+    }
+    if((tonya != 1) && (tonya != 0))
+    {
+      //std::cout << "Wrong decision for Tonya! Enter again: ";
+      while((tonya != 1) && (tonya != 0))
+      {
+        std::cin >> tonya;
+        if((tonya != 1) && (tonya != 0))
+        {
+          //std::cout << "Wrong decision for Tonya! Enter again: ";
+        }
+      }
+    }
+    if(((petya == 1) || (petya == 0)) && ((vasya == 1) || (vasya == 0)) && ((tonya == 1) || (tonya == 0)))
+    {
+      //std::cout << petya << " " << vasya << " " << tonya << std::endl;
+      index++;
+    }
+    if((petya + vasya + tonya) >= 2)
+    {
+      counter++;
+    }
+  }
+  std::cout << std::endl << counter << std::endl;
+ 
+  return 0;
+}
