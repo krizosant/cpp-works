@@ -1,0 +1,33 @@
+#include <iostream>
+
+int main()
+{
+	unsigned k, n, w;
+	//w - number of bananas
+	//k - price for banana (k = 1 dollars for 1 banana; k *= i for the i-th banana)
+	//n - soldier's dollars
+
+	do
+	{
+		std::cin >> k >> n >> w;
+	}
+	while((w > 1000) && (k < 1) && (n > 1*10e9));
+
+	for(unsigned index = 2, bananaCost = k; index <= w;)
+	{
+		k += bananaCost * index;
+		index++;
+	}
+
+	if(n < k)
+	{
+		std::cout << k - n;
+	}
+	else
+	{
+		std::cout << 0;
+	}
+
+	return 0;
+}
+
