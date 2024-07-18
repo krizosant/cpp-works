@@ -1,0 +1,40 @@
+#include <iostream>
+
+int main()
+{
+	unsigned heightOfFence, numberOfFriends, widthOfRoad; //height of fence and number of friends
+	unsigned* personHeight; //array of heights of friends with no size
+
+	heightOfFence = numberOfFriends = widthOfRoad = 0;
+	do
+	{
+		std::cin >> numberOfFriends >> heightOfFence;
+		if(((heightOfFence >= 1) && (heightOfFence <= 1000)) && ((numberOfFriends >= 1) && (numberOfFriends <= 1000)))
+		{
+			break;
+		}
+	}
+	while(true);
+
+	personHeight = new unsigned[numberOfFriends]; //size defined
+	for(unsigned index = 0; index < numberOfFriends;)
+	{
+		std::cin >> personHeight[index];
+		if((personHeight[index] >= 1) && (personHeight[index] <= 2*heightOfFence))
+		{
+			if(personHeight[index] <= heightOfFence)
+			{
+				widthOfRoad++;
+			}
+			else
+			{
+				widthOfRoad += 2;
+			}
+			index++;
+		}
+	}
+
+	std::cout << widthOfRoad;
+	delete[] personHeight;
+	return 0;
+}
