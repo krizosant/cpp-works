@@ -1,0 +1,49 @@
+#include <iostream>
+
+int main()
+{
+	unsigned numberOfRooms, numberOfPeople, roomCapacity, availableRoomsCount;
+	numberOfRooms = numberOfPeople = roomCapacity = availableRoomsCount =0;
+
+	do
+	{
+		std::cin >> numberOfRooms;
+		if((numberOfRooms >= 1) && (numberOfRooms <= 100))
+		{
+			break;
+		}
+	}
+	while(true);
+
+	unsigned roomIndex = 0;
+	do
+	{
+		std::cin >> numberOfPeople >> roomCapacity;
+		if((numberOfPeople >= 0) && (numberOfPeople <= 100))
+		{
+			if((roomCapacity >= 0) && (numberOfPeople <= 100))
+			{
+				if(numberOfPeople <= roomCapacity)
+				{
+					if(numberOfPeople + 2 <= roomCapacity)
+					{
+						availableRoomsCount++;
+						roomIndex++;
+					}
+					else
+					{
+						roomIndex++;
+					}
+				}
+				else
+				{
+					roomIndex++;
+				}
+			}
+		}
+	}
+	while(roomIndex < numberOfRooms);
+
+	std::cout << availableRoomsCount;
+	return 0;
+}
