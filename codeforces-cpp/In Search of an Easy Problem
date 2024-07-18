@@ -1,0 +1,42 @@
+#include <iostream>
+
+int main()
+{
+	unsigned numberOfPeople, counter;
+	bool opinion;
+	//cordinator asked this many people; each person said easy or hard problem
+	//if at least 1 of these n people said the problem is hard -> the coordinator decides to change the problem
+	numberOfPeople = 0;
+	do
+	{
+		std::cin >> numberOfPeople;
+		if((numberOfPeople >= 1) && (numberOfPeople <= 100))
+		{
+			break;
+		}
+	}
+	while(true);
+
+	counter = 0;
+	opinion = false;
+	do
+	{
+		std::cin >> opinion;
+		if((opinion == 1) || (opinion == 0))
+		{
+			if(opinion == 1)
+			{
+				std::cout << "HARD";
+				break;
+			}
+			counter++;
+		}
+	}
+	while(counter < numberOfPeople);
+	if(counter == numberOfPeople)
+	{
+		std::cout << "EASY";
+	}
+
+	return 0;
+}
